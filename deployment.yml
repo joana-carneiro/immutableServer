@@ -1,14 +1,21 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: patterns-backend
+  name: backend-deployment
+  labels:
+    app: backend
 spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
   template:
     metadata:
-      name: patterns-backend-pod
+      labels:
+        app: backend
     spec:
       containers:
-      - name: patterns-backend
+      - name: backend
         image: joanacarneiro/patterns-backend
         imagePullPolicy: Never
-      restartPolicy: Never
+      restartPolicy: Always
