@@ -2,7 +2,7 @@
 
 This is a simple node-express server to explore and understand the Immutable Server pattern.
 
-</pr>
+<br>
 
 ## Immutable Server In Action
 
@@ -24,19 +24,29 @@ eval $(minikube -p minikube docker-env)
 docker build . -t joanacarneiro/patterns-backend
 ```
 
-- Apply kubernetes configuration
+- Apply kubernetes configuration v1
 ```bash
-kubectl apply -f deployment.yml
+kubectl apply -f deployment-v1.yml
 ```
 
-- Verify that the pod is up and running 
+- Verify that the pods are up and running 
 ```bash
-kubectl get pod joanacarneiro/patterns-backend is up and running
+kubectl get pods --show-labels
+```
+
+- Apply kubernetes configuration v2
+```bash
+kubectl apply -f deployment-v2.yml
+```
+
+- Verify that the pods are up and running and have been replaced with v2
+```bash
+kubectl get pods --show-labels
 ```
 
 ***
 
-<br>
+
 
 ## Testing
 Postman is a useful tool to issue and save requests. Postman can create GET, PUT, POST, etc. requests complete with bodies. It can also be used to test endpoints automatically. We've included a collection (`./test_collection_postman.json `) which contains example requsts.
