@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: patterns-backend
+spec:
+  template:
+    metadata:
+      name: patterns-backend-pod
+    spec:
+      containers:
+      - name: patterns-backend
+        image: joanacarneiro/patterns-backend
+        imagePullPolicy: Never
+      restartPolicy: Never

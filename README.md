@@ -31,6 +31,22 @@ npm run dev
 Developer mode runs off the TypeScript source. Any saves will reset the server and run the latest version of the codebase. 
 
 ***
+
+## Docker
+
+Build the images: docker build . -t joanacarneiro/patterns-backend
+
+Push the images: 
+Run the container: 
+
+*** 
+
+## Kubernetes
+
+kubectl create -f deployment.yml
+
+***
+
 ## Important Files and Project Structure
 
 The source code for this demo resides in the ./src directory.
