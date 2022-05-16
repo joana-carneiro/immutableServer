@@ -32,12 +32,33 @@ Developer mode runs off the TypeScript source. Any saves will reset the server a
 
 ***
 
-## Docker
+## Immutable Server In Action
 
-Build the images: docker build . -t joanacarneiro/patterns-backend
+*This setup is tough for a local configuration*
 
-Push the images: 
-Run the container: 
+- Install https://minikube.sigs.k8s.io/docs/start/ 
+- Start cluster
+```bash
+minikube start
+```
+
+- Point the local Docker daemon to the minikube internal Docker registry, so that minikube fetches the docker image locally
+```bash
+eval $(minikube -p minikube docker-env)
+```
+
+- Build Docker image and store locally
+```bash
+docker build . -t joanacarneiro/patterns-backend
+```
+
+- Apply kubernetes configuration
+```bash
+kubectl apply -f deployment.yml
+```
+
+
+
 
 *** 
 
